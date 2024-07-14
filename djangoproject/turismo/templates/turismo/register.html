@@ -1,0 +1,18 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Registro de Usuario</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+    {% if form.errors %}
+        <div class="alert alert-danger mt-2">
+            <p>Por favor, corrige los errores a continuación:</p>
+        </div>
+    {% endif %}
+    <p>Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión aquí</a>.</p>
+</div>
+{% endblock %}

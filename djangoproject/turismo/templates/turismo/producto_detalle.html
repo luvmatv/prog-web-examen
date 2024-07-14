@@ -1,0 +1,13 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}{{ producto.nombre }} - EcoCrecer{% endblock %}
+
+{% block content %}
+    <h2>{{ producto.nombre }}</h2>
+    <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" style="max-width: 300px;">
+    <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+    <p><strong>Stock:</strong> {{ producto.stock }} unidades disponibles</p>
+    <p>{{ producto.descripcion }}</p>
+    <a href="{% url 'producto_lista' %}" class="btn btn-success">Volver a la lista</a>
+    <a href="{% url 'carrito_agregar' producto.pk %}" class="btn btn-success">Añadir al Carrito</a>
+{% endblock %}

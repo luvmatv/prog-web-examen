@@ -1,0 +1,21 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Lista de Productos - EcoCrecer{% endblock %}
+
+{% block content %}
+    <h2>Nuestros Productos</h2>
+    <div class="row">
+    {% for producto in productos %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ producto.nombre }}</h5>
+                    <p class="card-text">{{ producto.descripcion }}</p>
+                    <a href="{% url 'producto_detalle' pk=producto.pk %}" class="btn btn-success">Ver detalles</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
